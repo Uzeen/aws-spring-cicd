@@ -48,14 +48,36 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 			<plugin>
-    <groupId>org.apache.maven.plugins</groupId>
-    <artifactId>maven-compiler-plugin</artifactId>
-    <version>3.7.0</version>
-    <configuration>
-        <release>8</release>
-        <verbose>true</verbose>
-    </configuration>
-</plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+    			<artifactId>maven-compiler-plugin</artifactId>
+    			<version>3.7.0</version>
+    				<configuration>
+        				<release>8</release>
+        				<verbose>true</verbose>
+    				</configuration>
+			</plugin>
+			<plugin>
+        		<groupId>org.apache.maven.plugins</groupId>
+        		<artifactId>maven-war-plugin</artifactId>
+        		<version>3.2.3</version>
+        		<executions>
+          			<execution>
+            			<id>default-war</id>
+            			<phase>None</phase>
+            		</execution>
+            		<execution>
+            			<id>war-exploded</id>
+            			<phase>prepare-package</phase>
+            			<configuration>
+ 							<webappDirectory>target/deploy</webappDirectory>
+ 							<archiveClasses>true</archiveClasses>
+			            </configuration>
+            			<goals>
+              				<goal>exploded</goal>
+            			</goals>
+          			</execution>
+        		</executions>
+      		</plugin>
 		</plugins>
 	</build>
 
